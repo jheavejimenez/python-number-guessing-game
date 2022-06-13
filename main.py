@@ -6,7 +6,8 @@ Number guessing game
 -- Ask the user to guess the number
 -- If the user guesses the number, congratulate them
 -- If the user guesses incorrectly, tell them if they guessed too high or too low
--- If the user guesses correctly return the amount they bet plus the amount they won
+-- If the user guesses correctly return the amount that he user bet * 2.5 / guess count
+-- If the user runs out of guesses, tell them they lost
 
 """
 import random
@@ -33,15 +34,19 @@ def main():
     """
     Main function
     """
-    print("Welcome to the number guessing game!")
-    print("I'm thinking of a number between 1 and 100.")
-    print("Try to guess it in as few attempts as possible.")
-    print("")
 
-    # Set the initial values
     max_guesses = 10
     guess_count = 0
     guess = 0
+
+    message = (
+        f"Welcome to the number guessing game!\n"
+        f"You have {max_guesses} guesses to guess the number.\n"
+        f"The computer will generate a random number between 1 and 100.\n"
+        f"Try to guess it in as few attempts as possible."
+    )
+    print(message)
+
     bet = ask_user_to_stake_bet()
     number = generate_number()
 
@@ -55,7 +60,7 @@ def main():
             print("Your guess is too high.")
         else:
             print("You guessed correctly!")
-            print("You won $" + str((bet * 2.5) / guess_count) + "!")
+            print("You won $" + str(round((bet * 2.5) / guess_count)) + "!")
 
     # If the user runs out of guesses, tell them they lost
     if guess_count == max_guesses:
