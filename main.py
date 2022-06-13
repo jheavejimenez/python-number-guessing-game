@@ -19,4 +19,13 @@ def generate_number():
     return random.randint(1, 100)
 
 
+def ask_user_to_stake_bet():
+    """
+    Ask the user to stake a bet
+    """
+    bet = int(input("How much would you like to bet? "))
+    print("You have bet $" + str(bet) + ".")
+    print("")
+    return bet
+
 
