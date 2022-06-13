@@ -9,3 +9,14 @@ Number guessing game
 -- If the user guesses correctly return the amount they bet plus the amount they won
 
 """
+import random
+
+
+def generate_number():
+    """
+    Generate a random number between 1 and 100
+    """
+    return random.randint(1, 100)
+
+
+
